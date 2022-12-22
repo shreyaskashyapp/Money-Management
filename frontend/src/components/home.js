@@ -1,9 +1,16 @@
 import react from 'react'
-
-export default function home(){
-  return(
+import Doughnut from './doughnut'
+import Label from './Label'
+export default function home() {
+  return (
     <div>
-      homeeeeeeeeeeeeee
+      <div className='combo'>
+        <Doughnut />
+        <div className='label-container'>
+          <Label />
+          <Label />
+        </div>
+      </div>
     </div>
   )
 }

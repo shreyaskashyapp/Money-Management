@@ -7,5 +7,43 @@ a{
   justify-content: space-between;
   list-style: none;
   padding: 0px 10px;
-  padding: 0px;
+}
+
+.doughnut{
+  border: solid; 
+  width: 400px;
+  height:350px;
+  margin: 100px 20px;
+}
+
+.labels{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border:2px solid;
+  width: 300px;
+  max-height: 40px;
+
+}
+
+.combo{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+.label-container{
+  /* border: solid; */
+  margin: -90px 20px;
+  width: 400px; 
+}
+
+.label-text{
+  margin-left:-200px;
+}
+.box{
+  /* border: solid; */
+  background: cyan;
+  height: 20px;
+  border-radius: 2px;
+  width: 5px;
 }

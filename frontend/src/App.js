@@ -6,8 +6,15 @@ import Settings from "./components/settings"
 import Navbar from "./components/navbar"
 import react from 'react'
 import "./App.css"
+import axios from 'axios'
 
 console.log(Navbar)
+
+
+const obj={username:'frontend'};
+axios.post('http://localhost:6000/users/add',obj)
+  .then(res => console.log(res.data))
+  .catch(err => console.log(err))
 
 function App() {
   return (
