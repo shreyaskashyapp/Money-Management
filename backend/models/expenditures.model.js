@@ -3,14 +3,17 @@ const Schema = mongoose.Schema;
 
 const expendiureSchema = new Schema({
   eName:{
-    type:String
+    type:String,
+    required:true
   },
 
   eType:{
-    type:String
+    type:String,
+    required:true
   },
   eAmount:{
-    type:Number
+    type:Number,
+    required:true
   },
 
 },{
