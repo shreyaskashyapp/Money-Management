@@ -1,9 +1,10 @@
 import react from 'react'
-
-export default function Logout(){
-  return(
+import NavbarSettings from "./navbar_settings"
+export default function Logout() {
+  return (
     <div>
-      Logout
+      <h3>Settings</h3>
+      <NavbarSettings />
     </div>
   )
 }

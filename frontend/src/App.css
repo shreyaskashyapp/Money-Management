@@ -191,3 +191,22 @@ a:focus {
 h4{
   text-align: left;
 }
+.navbar-settings{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 20px;
+  /* border: 1px solid; */
+  border-radius: 10px;
+  width: 100px;
+}
+.s-li{
+  border-radius: 5px;
+}
+.s-li:hover{
+  background: grey;
+}
+.s-li:focus{
+  color: #00b8d4;
+}
+
