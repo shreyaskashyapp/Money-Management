@@ -4,6 +4,9 @@ import Reports from "./components/reports"
 import Visualise from "./components/visualise"
 import Settings from "./components/settings"
 import Navbar from "./components/navbar"
+import Accounts from "./components/accounts"
+import Logout from "./components/logout"
+import Darkmode from "./components/darkmode"
 import react, { useState, useEffect } from 'react'
 import "./App.css"
 import axios from 'axios'
@@ -24,7 +27,12 @@ function App() {
           <Route path='/reports' element={<Reports />} />
           <Route path='/visualise' element={<Visualise />} />
           <Route path='/settings' element={<Settings />} />
+          <Route path='/settings' exact element={<Settings />} />
+          <Route path='/settings/accounts' exact element={<Accounts />} />
+          <Route path='/settings/logout' exact element={<Logout />} />
+          <Route path='/settings/darkmode' exact element={<Darkmode />} />
         </Routes>
+          
       </div>
     </Router>
   );
