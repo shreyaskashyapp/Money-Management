@@ -207,5 +207,19 @@ h4{
 .s-li-active{
   color: #00b8d4;
 }
+.line{
+  display: flex;
+  align-items: center;  
+  width: 700px;
+  border-bottom: 1px solid;
+
+}
+
+.visualise{
+  display: flex; 
+  flex-direction: column; 
+  gap:20px;
+  /* border: solid; */
+}
 
 

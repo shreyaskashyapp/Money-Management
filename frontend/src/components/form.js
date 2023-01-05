@@ -28,7 +28,7 @@ export default function Form(props) {
       eType:type
     }
     axios.post('http://localhost:8080/expenses/add',obj)
-      .then(res => {
+      .then(res => {console.log(res) 
                     props.formClick()})
       .catch(err => console.log(err));
   }

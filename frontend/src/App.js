@@ -17,7 +17,27 @@ import axios from 'axios'
 //   .catch(err => console.log(err))
 
 
+
 function App() {
+  const [data, setData] = useState([])
+
+  async function fetchData() {
+    const res = await axios.get('http://localhost:8080/expenses/')
+    try {
+      return res.data
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  useEffect(() => {
+    fetchData()
+      .then(datas => {
+        setData(datas)
+      })
+  }, [])
   return (
     <Router>
       <div className="nav-container">
@@ -25,14 +45,14 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='/reports' element={<Reports />} />
-          <Route path='/visualise' element={<Visualise />} />
+          <Route path='/visualise' element={<Visualise data={data} />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/settings' exact element={<Settings />} />
           <Route path='/settings/accounts' exact element={<Accounts />} />
           <Route path='/settings/logout' exact element={<Logout />} />
           <Route path='/settings/darkmode' exact element={<Darkmode />} />
         </Routes>
-          
+
       </div>
     </Router>
   );
