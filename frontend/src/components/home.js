@@ -14,7 +14,7 @@ export default function Home() {
   const [showForm, setShowForm] = useState(false)
   const [btnText, setBtntext] = useState('Add New Expense')
   const [edata, setEdata] = useState([])
-  const [expenses, setExpenses] = useState([])
+  const [re,setRe] = useState('')
 
   async function fetchData() {
     try {
@@ -31,15 +31,15 @@ export default function Home() {
       .then(data => {
         setEdata(data)
       })
-  }, [])
-  console.log(edata)
+    console.log('RENDERED')
+  }, [re])
+  // console.log(edata)
 
   var Other = 0;
   var Investments = 0
   let Expense = 0
   let Savings = 0
   for (let i = 0; i < edata.length; i++) {
-    console.log(edata[i].eType)
     if (edata[i].eType === 'other') {
       Other += edata[i].eAmount;
     }
@@ -54,7 +54,7 @@ export default function Home() {
     }
   }
   const total = Other + Investments + Expense + Savings
-  console.log(Investments, Savings, Expenses, Other, total)
+  // console.log(Investments, Savings, Expenses, Other, total)
   let a = parseInt(Investments / total * 100)
   let b = parseInt(Savings / total * 100)
   let c = parseInt(Expense / total * 100)
@@ -62,10 +62,18 @@ export default function Home() {
   const newData = [{ name: 'Investments', color: 'pink', amount: a ? a : 0 }, { name: 'Savings', color: 'cyan', amount: b ? b : 0 },
   { name: 'Expenenses', color: 'red', amount: c ? c : 0 }, { name: 'Other', color: 'yellow', amount: d ? d : 0 },]
 
+  async function handleClick(id) {
+    try {
+      await axios.delete(`http://localhost:8080/expenses/${id}`);
+      setRe(Math.random());
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   let Labels = newData.map((items) => <Label name={items.name} color={items.color} amount={items.amount} />)
-  const e = edata.map((items) => <Expenses name={items.eName} type={items.eType} amount={items.eAmount}/>)
+  const e = edata.map((items) => <Expenses id={items._id} name={items.eName} type={items.eType} amount={items.eAmount} onclick={handleClick} />)
   function toggleForm() {
-    console.log("pressed")
     setShowForm(prev => !prev);
     if (!showForm) {
       setBtntext('Done')
@@ -74,6 +82,14 @@ export default function Home() {
       setBtntext('Add New Expense')
     }
   }
+
+  function handleForm(){
+    setRe(Math.random())
+    setShowForm(prev => !prev)
+    setBtntext('Add New Expense')
+  }
+
+
   return (
     <div className='home'>
       <div className='combo'>
@@ -84,7 +100,7 @@ export default function Home() {
       </div>
       <div className="r-box">
         {!showForm ? e : null}
-        {showForm ? <Form /> : null}
+        {showForm ? <Form formClick={handleForm}/> : null}
         <button className="btn" onClick={toggleForm}>{btnText}</button>
       </div>
 

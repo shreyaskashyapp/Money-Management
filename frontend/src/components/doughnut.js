@@ -14,7 +14,7 @@ export default function Graph(props) {
     let Expenses = 0
     let Savings = 0
     for (let i = 0; i < props.data.length; i++) {
-      console.log(props.data[i].eType)
+      // console.log(props.data[i].eType)
       if (props.data[i].eType === 'other') {
         Other += props.data[i].eAmount;
       }
@@ -29,7 +29,7 @@ export default function Graph(props) {
       }
     }
     const total = Other + Investments + Expenses + Savings
-    console.log(Investments, Savings, Expenses, Other, total)
+    // console.log(Investments, Savings, Expenses, Other, total)
     let a = parseInt(Investments / total * 100)
     let b = parseInt(Savings / total * 100)
     let c = parseInt(Expenses / total * 100)

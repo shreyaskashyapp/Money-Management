@@ -1,7 +1,7 @@
 import react from 'react'
 
 export default function Labels(props){
-  console.log(props)
+  // console.log(props)
   return(
     <div className ='labels'>
       <div className={`box-${props.color}`}>

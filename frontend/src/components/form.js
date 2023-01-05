@@ -1,7 +1,7 @@
 import react, { useState } from 'react'
 import axios from 'axios';
 
-export default function Form() {
+export default function Form(props) {
   const [name, setName] = useState('');
   const [type, setType] = useState('investments');
   const [amount, setAmount] = useState('');
@@ -21,13 +21,15 @@ export default function Form() {
   }
 
   function handleSubmit(event) {
+    event.preventDefault()
     const obj={
       eAmount:amount,
       eName:name,
       eType:type
     }
     axios.post('http://localhost:8080/expenses/add',obj)
-      .then(res => console.log(res))
+      .then(res => {
+                    props.formClick()})
       .catch(err => console.log(err));
   }
   return (

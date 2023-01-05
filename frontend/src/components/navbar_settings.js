@@ -1,28 +1,20 @@
-import react from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar_settings() {
-    return (
-        <nav className="navbar-settings">
+  const location = useLocation();
 
-            <Link to='/settings/accounts'>
-                <li className='s-li'>
-                    Accounts
-                </li>
-            </Link>
-
-            <Link to='/settings/logout'>
-                <li className='s-li'>
-                    Logout
-                </li>
-            </Link>
-
-            <Link to='/settings/darkmode'>
-                <li className='s-li'>
-                    Dark Mode
-                </li>
-            </Link>
-        </nav>
-    )
-
+  return (
+    <nav className="navbar-settings">
+      <li>
+        <Link to="/settings/accounts" className={location.pathname === '/settings/accounts' ? 's-li-active' : 's-li'}>Accounts</Link>
+      </li>
+      <li>
+        <Link to="/settings/logout" className={location.pathname === '/settings/logout' ? 's-li-active' : 's-li'}>Logout</Link>
+      </li>
+      <li>
+        <Link to="/settings/darkmode" className={location.pathname === '/settings/darkmode' ? 's-li-active' : 's-li'}>Dark Mode</Link>
+      </li>
+    </nav>
+  );
 }
