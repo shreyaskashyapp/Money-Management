@@ -24,12 +24,14 @@ connection.once('open',()=>{
 })
 
 const userRouter = require('./routes/user');
-const expenseRouter = require('./routes/expenses')
-const stockRouter = require('./routes/stock')
+const expenseRouter = require('./routes/expenses');
+const stockRouter = require('./routes/stock');
+const accountsRouter=require('./routes/accounts');
 
 app.use('/users',userRouter);
 app.use('/expenses',expenseRouter);
 app.use('/stocks',stockRouter);
+app.use('/accounts',accountsRouter);
 
 app.listen(port,()=>{
   console.log(`Server is running on port ${port}`);
