@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Accounts = require('../models/savings.model')
+const Accounts = require('../models/accounts.model')
 
 router.route('/').get((req,res) => {
     Accounts.find()
@@ -8,16 +8,16 @@ router.route('/').get((req,res) => {
   });
 
 router.route('/add').post((req,res) => {
-    const Account_No = req.body.Account_No;
-    const Account_Name = req.body.Account_Name;
-    const Account_Type = req.body.Account_Type;
-    const Account_Balance = req.body.Account_Balance;
+    const acc_no = req.body.acc_no;
+    const acc_name = req.body.acc_name;
+    const acc_type = req.body.acc_type;
+    const acc_balance = req.body.acc_balance;
 
-    const newaccount = new Accounts({Account_No,Account_Name,Account_Type,Account_Balance});
+    const newaccount = new Accounts({acc_no,acc_name,acc_type,acc_balance});
 
     newaccount.save()
 
-    .then(() => res.json("new stock added sucesfully"))
+    .then(() => res.json("new Account added sucesfully"))
    .catch(err => res.status(200).json("Error "+err))
 })
 
