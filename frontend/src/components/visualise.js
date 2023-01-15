@@ -23,12 +23,12 @@ export default function visualise(props) {
     }
   }
   console.log(props.data)
-  const data = {
+  const Investmentdata = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
         label: 'Expected',
-        data: [0, 100, 100, 100],
+        data: [0, 50, 10, 100],
         borderColor: '#00BFFF',
         fill: false
       },
@@ -45,7 +45,7 @@ export default function visualise(props) {
   return (
     <div className='visualise'>
       <div className="line">
-        <Line data={data} />
+        <Line data={Investmentdata} />
         <h2>INVESTMENTS</h2>
       </div>
     </div>

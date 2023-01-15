@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Doughnut from './doughnut'
 import Label from './Label'
 import Form from './form'
