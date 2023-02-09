@@ -27,11 +27,16 @@ const userRouter = require('./routes/user');
 const expenseRouter = require('./routes/expenses');
 const stockRouter = require('./routes/stock');
 const accountsRouter=require('./routes/accounts');
+const modeRouter=require('./routes/mode');
+const goalRouter=require('./routes/goals');
+
 
 app.use('/users',userRouter);
 app.use('/expenses',expenseRouter);
 app.use('/stocks',stockRouter);
 app.use('/accounts',accountsRouter);
+app.use('/mode',modeRouter);
+app.use('/goals',goalRouter);
 
 app.listen(port,()=>{
   console.log(`Server is running on port ${port}`);

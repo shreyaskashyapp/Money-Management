@@ -20,6 +20,7 @@ import axios from 'axios'
 
 function App() {
   const [data, setData] = useState([])
+  const [gdata,setgData]= useState([])
 
   async function fetchData() {
     const res = await axios.get('http://localhost:8080/expenses/')
@@ -32,11 +33,14 @@ function App() {
 
   }
 
+
+
   useEffect(() => {
     fetchData()
       .then(datas => {
         setData(datas)
       })
+    
   }, [])
   return (
     <Router>
@@ -45,7 +49,7 @@ function App() {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='/reports' element={<Reports />} />
-          <Route path='/visualise' element={<Visualise data={data} />} />
+          <Route path='/visualise' element={<Visualise data={data}/>} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/settings' exact element={<Settings />} />
           <Route path='/settings/accounts' exact element={<Accounts />} />

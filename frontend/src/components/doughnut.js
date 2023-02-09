@@ -54,7 +54,6 @@ export default function Graph(props) {
 
     <div className="doughnut">
       <Doughnut {...config}></Doughnut>
-      <h4 className='total'>Total {}$</h4>
     </div>
   )
 }

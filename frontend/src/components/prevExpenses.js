@@ -10,9 +10,10 @@ export default function Expenses(props) {
   return (
     <div className="expenses" onClick={()=>handleClick(props.id)}>
      <div className='e-items'>
-      <h4>{props.name}</h4>
-      <h4>{props.type}</h4>
+      <h4>{props.name.toUpperCase()}</h4>
+      <h4>{props.type.toUpperCase()}</h4>
       <h4>{props.amount}</h4>
+      <img className='img'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXffnjeQCxXaaWbo7X9xM5Hd_rtaxHQJNGy70e3wE&s" alt=""/>
      </div>
   </div>
   )

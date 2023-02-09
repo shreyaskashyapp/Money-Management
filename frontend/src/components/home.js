@@ -3,6 +3,7 @@ import Doughnut from './doughnut'
 import Label from './Label'
 import Form from './form'
 import Expenses from './prevExpenses'
+import Goals from './goals'
 import axios from 'axios'
 
 // const data = [{ name: 'Investments', color: 'pink', amount: 20 }, { name: 'Savings', color: 'cyan', amount: 50 },
@@ -15,10 +16,21 @@ export default function Home() {
   const [btnText, setBtntext] = useState('Add New Expense')
   const [edata, setEdata] = useState([])
   const [re,setRe] = useState('')
+  const [data,setData]=useState([])
 
   async function fetchData() {
     try {
       const res = await axios.get('http://localhost:8080/expenses');
+      return res.data;
+    } catch (err) {
+      console.log(err);
+    }
+
+  }
+
+  async function fetchData2() {
+    try {
+      const res = await axios.get('http://localhost:8080/goals');
       return res.data;
     } catch (err) {
       console.log(err);
@@ -64,6 +76,7 @@ export default function Home() {
 
   async function handleClick(id) {
     try {
+
       await axios.delete(`http://localhost:8080/expenses/${id}`);
       setRe(Math.random());
     } catch (err) {
@@ -88,10 +101,9 @@ export default function Home() {
     setShowForm(prev => !prev)
     setBtntext('Add New Expense')
   }
-
-
   return (
     <div className='home'>
+      <Goals />
       <div className='combo'>
         <Doughnut data={edata} />
         <div className='label-container'>
